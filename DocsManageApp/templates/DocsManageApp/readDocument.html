@@ -1,0 +1,26 @@
+{% for document in  documents %}
+<tr>
+    <td>{{ document.id }}</td>
+    <td>{{ document.category }}</td>
+    <td>{{ document.content }}</td>
+    <td>{{ document.url}}</td>
+    <td>  
+        <button class="btn btn-warning updateForm">
+        <span class="glyphicon glyphicon-pencil"></span>
+            Edit 
+        </button>
+    </td>
+    <td>  
+        <button class="btn btn-danger deleteForm">
+        <span class="glyphicon glyphicon-trash"></span>
+            Delete 
+        </button>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7" class="text-center bg-warning">
+        empty document!
+    </td>
+</tr>
+{% endfor %}
