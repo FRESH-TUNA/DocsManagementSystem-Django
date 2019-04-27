@@ -21,4 +21,3 @@ urlpatterns = [
     path('DocsManageApp/', include('DocsManageApp.urls')),
     path('admin/', admin.site.urls),
 ]
-#include('DocsManageApp.urls')

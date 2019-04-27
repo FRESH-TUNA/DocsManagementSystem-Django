@@ -1,0 +1,6 @@
+<form method="post" data-url="{% url 'updateDocument' document.id %}" class="updateForm">
+    <input type="text" name="category" value="{{document.category}}">
+    <input type="text" name="content" value="{{document.content}}">
+    <input type="text" name="url" value="{{document.url}}">
+    <button type="submit" value="Submit">
+</form>
