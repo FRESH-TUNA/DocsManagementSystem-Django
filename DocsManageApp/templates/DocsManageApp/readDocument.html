@@ -5,13 +5,13 @@
     <td>{{ document.content }}</td>
     <td>{{ document.url}}</td>
     <td>  
-        <button class="btn btn-warning updateForm">
+        <button class="btn btn-warning showUpdateForm" data-url="{% url 'updateDocument' document.id %}">
         <span class="glyphicon glyphicon-pencil"></span>
             Edit 
         </button>
     </td>
     <td>  
-        <button class="btn btn-danger deleteForm">
+        <button class="btn btn-danger showDeleteForm" data-url="{% url 'deleteDocument' document.id %}">
         <span class="glyphicon glyphicon-trash"></span>
             Delete 
         </button>

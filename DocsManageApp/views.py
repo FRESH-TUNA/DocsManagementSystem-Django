@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 from .models import Document
 
 # Create your views here.
@@ -28,15 +30,14 @@ def updateDocument(request, pk):
     document = get_object_or_404(Document,id=pk)
 
     if request.method == 'GET':    
-        form = DocumentForm(instance=document)
-	    data['html_form'] = render_to_string('DocsManageApp/updateDocumentPartial.html', {'document':document})
+        data['html_form'] = render_to_string('DocsManageApp/updateDocumentPartial.html', {'document':document}, request=request)
     else:
         form = DocumentForm(request.POST)
         if(form.is_valid()):
             form.save()
             documents = Document.objects.all()
             data['form_is_valid'] = True
-            data['documents'] = render_to_string('DocsManageApp/readDocument.html',{'documents':document})     
+            data['documents'] = render_to_string('DocsManageApp/readDocument.html',{'documents':documents})     
         else:
             data['form_is_valid'] = False
 
@@ -44,15 +45,17 @@ def updateDocument(request, pk):
 
 def deleteDocument(request, pk):
     data = dict()
+    document = get_object_or_404(Document,id=pk)
+
     if request.method == 'GET':
-	    data['html_form'] = render_to_string('DocsManageApp/deleteDocumentPartial.html')
+        data['html_form'] = render_to_string('DocsManageApp/deleteDocumentPartial.html', {'document':document} ,request=request)
     else:
         form = DocumentForm(request.POST)
         if(form.is_valid()):
             form.save()
             documents = Document.objects.all()
             data['form_is_valid'] = True
-            data['documents'] = render_to_string('DocsManageApp/readDocument.html',{'documents':document})
+            data['documents'] = render_to_string('DocsManageApp/readDocument.html',{'documents':documents})
             
         else:
             data['form_is_valid'] = False
