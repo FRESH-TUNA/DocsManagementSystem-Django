@@ -9,7 +9,7 @@ $(document).ready(function() {
                     $('#modalForMemoak').modal('show');
                 },
                 success: function(data) {
-                    $('#modalForMemoak .modal-content').html(data.html_form);
+                    $('#modalForMemoak .modal-content .modal-body').html(data.html_form);
                 }
             });
         };
@@ -25,7 +25,7 @@ $(document).ready(function() {
                     $('#modalForMemoak').modal('hide');
                 },
                 success: function(data) {
-                    $('#modalForMemoak .modal-content').html(data.html_form);
+                    $('#modalForMemoak .modal-content .modal-body').html(data.html_form);
                 }
             });
         }
