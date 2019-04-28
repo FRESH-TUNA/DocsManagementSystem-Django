@@ -1,5 +1,5 @@
-<form data-url="{% url 'createDocument' %}" method="post" class="createForm">
-    <input type="hidden" id="csrf_token" value='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+<form method="post" data-url="{% url 'createDocument' %}" class="createForm">
+    {% csrf_token %}
     <div class="form-group">
         <label for="category">Category:</label>
         <input type="text" class="form-control" name="category" value="Mickey">
