@@ -1,0 +1,16 @@
+<form method="post" data-url="{% url 'createDocument' %}" class="createForm">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" class="form-control" name="category" value="Mickey">
+    </div>
+    <div class="form-group">
+        <label for="content">Content:</label>
+        <input type="text" class="form-control" name="content" value="Mouse">
+    </div>
+    <div class="form-group">
+        <label for="url">Url:</label>
+        <input type="text" class="form-control" name="url" value="Mouse">
+    </div>
+    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+</form>
