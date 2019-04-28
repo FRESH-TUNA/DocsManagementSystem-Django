@@ -1,7 +1,7 @@
 from django import forms
+from .models import Document
 
-class DocumentForm(forms.Form):
+class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
-        field = ('category', 'content', 'url')
-        
+        fields = ('category', 'content', 'url')
