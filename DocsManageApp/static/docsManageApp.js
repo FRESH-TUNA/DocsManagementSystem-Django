@@ -9,7 +9,7 @@ $(document).ready(function() {
                     $('#modalForMemoak').modal('show');
                 },
                 success: function(data) {
-                    $('#modalForMemoak .modal-content .modal-body').html(data.html_form);
+                    $('.modal-body').html(data.html_form);
                 }
             });
         };
