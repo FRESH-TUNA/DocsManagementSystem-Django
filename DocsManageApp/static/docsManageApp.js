@@ -21,13 +21,16 @@ $(document).ready(function() {
                 data: thisButton.serialize(),	
                 type: 'post',
                 dataType: 'json',
-                beforeSend: function() {
-                    $('#modalForMemoak').modal('hide');
-                },
                 success: function(data) {
-                    $('#modalForMemoak .modal-content .modal-body').html(data.html_form);
+                    if(data.form_is_valid){
+                        $('#documentTable tbody').html(data.documents);
+                        $('#modalForMemoak').modal('hide');
+                    } else {
+                        $('.modal-body').html(data.html_form);
+                    }  
                 }
             });
+            return false; ////추가하니깐 에러 제거됨
         }
 
         $('.showCreateForm').click(showForm);
