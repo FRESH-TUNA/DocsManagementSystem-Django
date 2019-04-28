@@ -1,4 +1,5 @@
 <form method="post" data-url="{% url 'updateDocument' document.id %}" class="updateForm">
+    {% csrf_token %}
     <div class="form-group">
         <label for="category">Category:</label>
         <input type="text" class="form-control" name="category" value="{{document.category}}">
@@ -13,4 +14,5 @@
         <label for="url">Url:</label>
         <input type="text" class="form-control" name="url" value="{{document.url}}">
     </div>
+    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
 </form>

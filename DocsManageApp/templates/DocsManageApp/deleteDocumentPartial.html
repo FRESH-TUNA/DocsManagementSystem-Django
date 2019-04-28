@@ -1,5 +1,7 @@
-<form data-url="{% url 'deleteDocument' document.id %}" method="post" class="deleteDocument">
-<div>
-    Are you sure want to delete <strong>{{document.content}}</strong>
-</div>
+<form method="post" data-url="{% url 'deleteDocument' document.id %}" class="deleteForm">
+    {% csrf_token %}
+    <div>
+        Are you sure want to delete <strong>{{document.content}}</strong>
+    </div>
+    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
 </form>
