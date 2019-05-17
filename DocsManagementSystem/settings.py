@@ -21,16 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-secret_file = os.path.join(BASE_DIR, 'DocsManagementSystem/secretKey.json')
-with open(secret_file) as f:
-    secrets = json.loads(f.read())
-def get_secret(setting, secrets=secrets):
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-SECRET_KEY = get_secret("SECRET_KEY")
+SECRET_KEY = "+w(svmzjr6sdq!h)ma+p3p8=ms6g+xo52^*9*9+$253f-&(mg%"
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
